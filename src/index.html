@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mini-Game</title>
+
+    <style>
+      main {
+        display: flex;
+        flex-direction: row;
+        gap: 2%;
+      }
+      #game-assets {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      #game-items {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      #game-items > div {
+        background-color: #282828;
+        border-radius: 10px;
+        padding: 7px;
+      }
+
+      #wood {
+        color: antiquewhite;
+      }
+
+      #stone {
+        color: antiquewhite;
+      }
+
+      #game-assets img {
+        width: 30px;
+      }
+
+      #game-assets > img {
+        width: 30px;
+        border: 3px solid #0f0f0f;
+        padding: 7px;
+      }
+
+      #game-assets > img:hover {
+        border-style: dashed;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <canvas id="canvas" width="480" height="480"></canvas>
+
+      <div id="game-assets">
+        <!-- <img src="../assets/img/assets/tile_0001.png" alt="" id="axe" />
+        <img src="../assets/img/assets/tile_0002.png" alt="" id="hoe" />
+        <img src="../assets/img/assets/tile_0003.png" alt="" id="sense" /> -->
+      </div>
+
+      <div id="game-items">
+        <div id="wood-container">
+          <img
+            src="../assets/img/kenney_tiny-farm/Tiles/tile_0027.png"
+            alt=""
+          />
+          <samp id="wood"></samp>
+        </div>
+        <div id="stone-container">
+          <img
+            src="../assets/img/kenney_tiny-farm/Tiles/tile_0089.png"
+            alt=""
+          />
+          <samp id="stone"></samp>
+        </div>
+      </div>
+    </main>
+
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
