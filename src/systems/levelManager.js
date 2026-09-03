@@ -35,8 +35,6 @@ export class LevelManager {
     console.log("GameObjects:", this.currentLevel.gameObjects);
 
     this.currentLevel.gameObjects.forEach((gameObject) => {
-      console.log("Erstelle:", gameObject);
-
       createGameObject(gameObject, {
         world: this.world,
         assets: this.assets,
