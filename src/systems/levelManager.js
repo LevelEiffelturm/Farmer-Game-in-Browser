@@ -62,7 +62,7 @@ export class LevelManager {
   }
 
   getCurrentLevel() {
-    return this.currentLevel.outdoor;
+    return this.currentLevel;
   }
 
   getBounds() {
@@ -77,6 +77,12 @@ export class LevelManager {
   }
 
   updatePlace(place) {
-    this.currentLevel = allLevel[this.level] + place;
+    this.currentLevel = allLevel[this.level][place];
+
+    if (!this.currentLevel) {
+      console.error(
+        `Place "${place}" für Level ${this.level} existiert nicht.`,
+      );
+    }
   }
 }

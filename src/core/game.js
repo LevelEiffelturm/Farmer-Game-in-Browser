@@ -58,7 +58,14 @@ export class Game {
 
     this.ui.update();
 
-    this.levelManager.updatePlace(this.world.getPlace());
+    const place = this.world.getPlace();
+
+    console.log("Place:", place);
+    console.log("Current Level vorher:", this.levelManager.getCurrentLevel());
+
+    this.levelManager.updatePlace(place);
+
+    console.log("Current Level nachher:", this.levelManager.getCurrentLevel());
   }
 
   draw() {
