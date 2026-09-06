@@ -21,6 +21,11 @@ export class Input {
         this.actionPressed = false;
       }
     });
+
+    window.addEventListener("blur", () => {
+      this.keys = {};
+      this.actionPressed = false;
+    });
   }
 
   isPressed(key) {

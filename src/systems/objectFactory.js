@@ -25,9 +25,8 @@ export function createGameObject(data, dependencies) {
   const object = new ObjectClass({
     ...data,
     ...dependencies,
+    place: dependencies.place,
   });
-
-  dependencies.world.add(object);
 
   return object;
 }

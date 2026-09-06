@@ -9,7 +9,7 @@ export class Rock extends GameObject {
   }
 
   interact(actor) {
-    if (actor.asset !== this.tool) {
+    if (actor.asset !== this.tool || actor.stone >= 10) {
       return;
     }
 

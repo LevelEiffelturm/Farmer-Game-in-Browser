@@ -33,6 +33,10 @@ export let allLevel = [
               "../assets/img/kenney_ui-pack-pixel-adventure/Tiles/Large tiles/Thick outline/tile_0058.png",
             ],
           ],
+          requested: {
+            wood: 1,
+            stone: 1,
+          },
         },
         {
           src: "../assets/img/kenney_tiny-farm/Tiles/tile_0027.png",

@@ -1,7 +1,7 @@
 import { GameObject } from "./GameObject.js";
 
 export class Actor extends GameObject {
-  constructor({ src, x, y, world, assets }) {
+  constructor({ src, x, y, world, assets, levelManager }) {
     super({
       src,
       x,
@@ -18,6 +18,8 @@ export class Actor extends GameObject {
 
     this.wood = 0;
     this.stone = 0;
+
+    this.levelManager = levelManager;
 
     this.asset = null;
   }
@@ -74,13 +76,14 @@ export class Actor extends GameObject {
     const object = world.getAt(nx, ny);
 
     if (object?.solid) {
+      object.interact?.(this, this.levelManager, nx, ny);
       return;
     }
 
     this.x = nx;
     this.y = ny;
 
-    object?.interact?.(this);
+    object?.interact?.(this, this.levelManager);
   }
 
   attack(dx, dy, world) {
@@ -90,6 +93,6 @@ export class Actor extends GameObject {
       return;
     }
 
-    target.interact(this);
+    target.interact(this, this.levelManager);
   }
 }

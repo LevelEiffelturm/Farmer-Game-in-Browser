@@ -13,7 +13,6 @@ export class MultiImgObject extends GameObject {
     place = null,
     world,
     assets,
-    levelManager,
   }) {
     super({
       src: null,
@@ -28,8 +27,6 @@ export class MultiImgObject extends GameObject {
       world,
       assets,
     });
-
-    this.levelManager = levelManager;
 
     this.tiles = tiles.map((row) => row.map((src) => assets.load(src)));
   }
