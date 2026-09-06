@@ -82,14 +82,6 @@ Die Spielgrafik nutzt Pixel-Art-Tiles aus den mitgelieferten Kenney-Paketen. Dad
 
 Bäume und Steine sind solide GameObjects. Ein passendes Werkzeug wird ausgewählt und anschließend auf das benachbarte Objekt angewendet. Ein Baum verschwindet nach der Interaktion und erhöht den Holzbestand. Ein Stein besitzt mehrere Abbaustufen und verschwindet nach mehreren Treffern.
 
-<div align="center">
-  <img src="assets/img/kenney_tiny-farm/Tiles/tile_0027.png" width="80" alt="Baum als Holzquelle" />
-  <span>&nbsp; + &nbsp;</span>
-  <img src="assets/img/assets/tile_axe.png" width="56" alt="Axt als passendes Werkzeug" />
-  <span>&nbsp; → &nbsp;</span>
-  <img src="assets/img/kenney_tiny-farm/Tiles/tile_0089.png" width="80" alt="Stein als Ressourcenquelle" />
-</div>
-
 ### Passendes Werkzeug
 
 Jedes Sammelobjekt definiert sein benötigtes Werkzeug:
