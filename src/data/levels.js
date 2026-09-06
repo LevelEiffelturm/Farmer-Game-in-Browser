@@ -15,10 +15,11 @@ export let allLevel = [
       ],
       gameObjects: [
         {
+          name: "Haus bauen",
           type: "sign",
           x: 8,
           y: 8,
-          cols: 1,
+          cols: 3,
           rows: 3,
           solid: false,
 
@@ -28,10 +29,47 @@ export let allLevel = [
               "../assets/img/kenney_ui-pack-pixel-adventure/Tiles/Large tiles/Thick outline/tile_0057.png",
               "../assets/img/kenney_ui-pack-pixel-adventure/Tiles/Large tiles/Thick outline/tile_0058.png",
             ],
+            [
+              "../assets/img/kenney_ui-pack-pixel-adventure/Tiles/Large tiles/Thick outline/tile_0001.png",
+              "../assets/img/kenney_ui-pack-pixel-adventure/Tiles/Large tiles/Thick outline/tile_0001.png",
+              "../assets/img/kenney_ui-pack-pixel-adventure/Tiles/Large tiles/Thick outline/tile_0001.png",
+            ],
+            [
+              "../assets/img/kenney_ui-pack-pixel-adventure/Tiles/Large tiles/Thick outline/tile_0001.png",
+              "../assets/img/kenney_ui-pack-pixel-adventure/Tiles/Large tiles/Thick outline/tile_0001.png",
+              "../assets/img/kenney_ui-pack-pixel-adventure/Tiles/Large tiles/Thick outline/tile_0001.png",
+            ],
           ],
+
           requested: {
             wood: 1,
             stone: 1,
+          },
+
+          build: {
+            type: "house",
+            x: 8,
+            y: 4,
+            cols: 3,
+            rows: 3,
+            solid: true,
+            tiles: [
+              [
+                "../assets/img/house/tile_0048.png",
+                "../assets/img/house/tile_0049.png",
+                "../assets/img/house/tile_0050.png",
+              ],
+              [
+                "../assets/img/house/tile_0060.png",
+                "../assets/img/house/tile_0061.png",
+                "../assets/img/house/tile_0062.png",
+              ],
+              [
+                "../assets/img/house/tile_0072.png",
+                "../assets/img/house/tile_0074.png",
+                "../assets/img/house/tile_0075.png",
+              ],
+            ],
           },
         },
         {
@@ -405,32 +443,32 @@ export let allLevel = [
           solid: true,
           type: "rock",
         },
-        {
-          type: "house",
-          x: 8,
-          y: 4,
-          cols: 3,
-          rows: 3,
-          solid: true,
+        // {
+        //   type: "house",
+        //   x: 8,
+        //   y: 4,
+        //   cols: 3,
+        //   rows: 3,
+        //   solid: true,
 
-          tiles: [
-            [
-              "../assets/img/house/tile_0048.png",
-              "../assets/img/house/tile_0049.png",
-              "../assets/img/house/tile_0050.png",
-            ],
-            [
-              "../assets/img/house/tile_0060.png",
-              "../assets/img/house/tile_0061.png",
-              "../assets/img/house/tile_0062.png",
-            ],
-            [
-              "../assets/img/house/tile_0072.png",
-              "../assets/img/house/tile_0074.png",
-              "../assets/img/house/tile_0075.png",
-            ],
-          ],
-        },
+        //   tiles: [
+        //     [
+        //       "../assets/img/house/tile_0048.png",
+        //       "../assets/img/house/tile_0049.png",
+        //       "../assets/img/house/tile_0050.png",
+        //     ],
+        //     [
+        //       "../assets/img/house/tile_0060.png",
+        //       "../assets/img/house/tile_0061.png",
+        //       "../assets/img/house/tile_0062.png",
+        //     ],
+        //     [
+        //       "../assets/img/house/tile_0072.png",
+        //       "../assets/img/house/tile_0074.png",
+        //       "../assets/img/house/tile_0075.png",
+        //     ],
+        //   ],
+        // },
       ],
       background: [
         "0001",

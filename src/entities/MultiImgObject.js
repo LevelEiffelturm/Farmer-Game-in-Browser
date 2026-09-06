@@ -2,7 +2,7 @@ import { GameObject } from "./GameObject.js";
 
 export class MultiImgObject extends GameObject {
   constructor({
-    tiles,
+    tiles = [],
     x,
     y,
     cols,
@@ -27,6 +27,12 @@ export class MultiImgObject extends GameObject {
       world,
       assets,
     });
+
+    if (!Array.isArray(tiles) || tiles.length === 0) {
+      throw new TypeError(
+        `MultiImgObject "${type}" benötigt ein nicht-leeres tiles-Array.`,
+      );
+    }
 
     this.tiles = tiles.map((row) => row.map((src) => assets.load(src)));
   }

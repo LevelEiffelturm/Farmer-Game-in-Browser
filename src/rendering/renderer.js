@@ -61,4 +61,34 @@ export class Renderer {
   drawTile(image, x, y) {
     this.drawImage(image, x, y, 1, 1);
   }
+
+  drawText(
+    text,
+    x,
+    y,
+    {
+      color = "#ffffff",
+      font = "12px monospace",
+      align = "left",
+      strokeColor = null,
+      lineWidth = 1,
+    } = {},
+  ) {
+    this.ctx.save();
+
+    this.ctx.fillStyle = color;
+    this.ctx.font = font;
+    this.ctx.textAlign = align;
+    this.ctx.textBaseline = "middle";
+
+    if (strokeColor) {
+      this.ctx.strokeStyle = strokeColor;
+      this.ctx.lineWidth = lineWidth;
+      this.ctx.strokeText(text, x * this.cellWidth, y * this.cellHeight);
+    }
+
+    this.ctx.fillText(text, x * this.cellWidth, y * this.cellHeight);
+
+    this.ctx.restore();
+  }
 }
