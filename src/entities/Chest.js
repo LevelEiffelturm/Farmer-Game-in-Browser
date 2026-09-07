@@ -1,7 +1,7 @@
 import { GameObject } from "./GameObject.js";
 
 export class Chest extends GameObject {
-  constructor({ src, x, y, world, assets }) {
+  constructor({ src, x, y, world, assets, place }) {
     super({
       src,
       x,
@@ -11,7 +11,7 @@ export class Chest extends GameObject {
       z: 10,
       solid: true,
       type: "chest",
-      place: "outdoor",
+      place,
       world,
       assets,
     });

@@ -14,31 +14,23 @@ export class LevelManager {
   }
 
   load(index) {
-    this.level = index;
-    this.currentLevel = allLevel[index].outdoor;
-
-    console.log(this.level);
-
-    if (!this.currentLevel) {
+    if (!allLevel[index]) {
       console.error(`Level ${index} does not exist.`);
-
       return;
     }
 
+    this.level = index;
     this.world.clear();
-
-    this.createLevelObjects();
+    this.loadPlace("outdoor");
   }
 
   createLevelObjects() {
-    console.log("Level:", this.currentLevel);
-    console.log("GameObjects:", this.currentLevel.gameObjects);
-
     this.currentLevel.gameObjects.forEach((gameObject) => {
       createGameObject(gameObject, {
         world: this.world,
         assets: this.assets,
         levelManager: this,
+        place: this.world.getPlace(),
       });
     });
   }
@@ -52,11 +44,37 @@ export class LevelManager {
 
       world: this.world,
       assets: this.assets,
+      levelManager: this,
     });
 
     player.availableAssets = this.currentLevel.assets;
 
     return player;
+  }
+
+  loadPlace(place) {
+    const level = allLevel[this.level]?.[place];
+
+    if (!level) {
+      console.error(
+        `Place "${place}" für Level ${this.level} existiert nicht.`,
+      );
+      return;
+    }
+
+    this.world.setPlace(place);
+    this.world.objects[place].length = 0;
+
+    level.gameObjects.forEach((gameObject) => {
+      createGameObject(gameObject, {
+        world: this.world,
+        assets: this.assets,
+        levelManager: this,
+        place,
+      });
+    });
+
+    this.currentLevel = level;
   }
 
   getCurrentLevel() {
@@ -72,6 +90,10 @@ export class LevelManager {
 
   getLevelIndex() {
     return this.level;
+  }
+
+  getLevel(index) {
+    return allLevel[index] ?? null;
   }
 
   updatePlace(place) {

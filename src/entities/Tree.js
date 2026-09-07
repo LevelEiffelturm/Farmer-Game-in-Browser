@@ -8,7 +8,7 @@ export class Tree extends GameObject {
   }
 
   interact(actor) {
-    if (actor.asset !== this.tool) {
+    if (actor.asset !== this.tool || actor.wood >= 10) {
       return;
     }
 
