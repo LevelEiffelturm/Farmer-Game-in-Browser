@@ -92,6 +92,8 @@ export class Sign extends MultiImgObject {
         levelManager,
         place: this.world.getPlace(),
       });
+
+      this.destroyed = true;
     }
   }
 }

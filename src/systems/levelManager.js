@@ -11,6 +11,7 @@ export class LevelManager {
 
     this.level = 0;
     this.currentLevel = null;
+    this.loadedPlaces = new Set();
   }
 
   load(index) {
@@ -21,6 +22,7 @@ export class LevelManager {
 
     this.level = index;
     this.world.clear();
+    this.loadedPlaces.clear();
     this.loadPlace("outdoor");
   }
 
@@ -63,6 +65,12 @@ export class LevelManager {
     }
 
     this.world.setPlace(place);
+
+    if (this.loadedPlaces.has(place)) {
+      this.currentLevel = level;
+      return;
+    }
+
     this.world.objects[place].length = 0;
 
     level.gameObjects.forEach((gameObject) => {
@@ -75,6 +83,7 @@ export class LevelManager {
     });
 
     this.currentLevel = level;
+    this.loadedPlaces.add(place);
   }
 
   getCurrentLevel() {

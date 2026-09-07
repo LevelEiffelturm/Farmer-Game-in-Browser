@@ -42,8 +42,8 @@ export let allLevel = [
           ],
 
           requested: {
-            wood: 1,
-            stone: 1,
+            wood: 9,
+            stone: 9,
           },
 
           build: {
@@ -443,32 +443,32 @@ export let allLevel = [
           solid: true,
           type: "rock",
         },
-        // {
-        //   type: "house",
-        //   x: 8,
-        //   y: 4,
-        //   cols: 3,
-        //   rows: 3,
-        //   solid: true,
+        {
+          type: "house",
+          x: 8,
+          y: 4,
+          cols: 3,
+          rows: 3,
+          solid: true,
 
-        //   tiles: [
-        //     [
-        //       "../assets/img/house/tile_0048.png",
-        //       "../assets/img/house/tile_0049.png",
-        //       "../assets/img/house/tile_0050.png",
-        //     ],
-        //     [
-        //       "../assets/img/house/tile_0060.png",
-        //       "../assets/img/house/tile_0061.png",
-        //       "../assets/img/house/tile_0062.png",
-        //     ],
-        //     [
-        //       "../assets/img/house/tile_0072.png",
-        //       "../assets/img/house/tile_0074.png",
-        //       "../assets/img/house/tile_0075.png",
-        //     ],
-        //   ],
-        // },
+          tiles: [
+            [
+              "../assets/img/house/tile_0048.png",
+              "../assets/img/house/tile_0049.png",
+              "../assets/img/house/tile_0050.png",
+            ],
+            [
+              "../assets/img/house/tile_0060.png",
+              "../assets/img/house/tile_0061.png",
+              "../assets/img/house/tile_0062.png",
+            ],
+            [
+              "../assets/img/house/tile_0072.png",
+              "../assets/img/house/tile_0074.png",
+              "../assets/img/house/tile_0075.png",
+            ],
+          ],
+        },
       ],
       background: [
         "0001",
@@ -853,6 +853,12 @@ export let allLevel = [
           y: 0,
           solid: true,
           type: "chest",
+        },
+        {
+          type: "door",
+          x: 2,
+          y: 4,
+          solid: true,
         },
       ],
       background: [
@@ -2078,6 +2084,12 @@ export let allLevel = [
           y: 0,
           solid: true,
           type: "chest",
+        },
+        {
+          type: "door",
+          x: 2,
+          y: 4,
+          solid: true,
         },
       ],
       background: [
