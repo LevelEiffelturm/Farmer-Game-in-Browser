@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 240" role="img" aria-labelledby="title desc">
+  <title id="title">Animierter Ressourcenzyklus</title>
+  <desc id="desc">Axt und Hacke treffen auf Baum und Stein und erhöhen den Ressourcenbestand.</desc>
+  <defs>
+    <linearGradient id="field" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#244b3b"/><stop offset="1" stop-color="#102d32"/>
+    </linearGradient>
+    <style>
+      .title { fill: #f7e9b2; font: 700 18px monospace; }
+      .label { fill: #d5e7c0; font: 700 14px monospace; }
+      .small { fill: #8db9a4; font: 13px monospace; }
+      .box { fill: #16363a; stroke: #4e8a72; stroke-width: 2; }
+    </style>
+  </defs>
+  <rect width="960" height="240" rx="18" fill="url(#field)"/>
+  <text x="480" y="30" text-anchor="middle" class="title">SAMMELN → RESSOURCE → FORTSCHRITT</text>
+  <g class="box">
+    <rect x="45" y="66" width="190" height="120" rx="12"/>
+    <rect x="278" y="66" width="190" height="120" rx="12"/>
+    <rect x="511" y="66" width="190" height="120" rx="12"/>
+    <rect x="744" y="66" width="170" height="120" rx="12"/>
+  </g>
+  <g text-anchor="middle">
+    <text x="140" y="96" class="label">WERKZEUG</text>
+    <text x="140" y="126" class="small">Axt / Hacke</text>
+    <text x="373" y="96" class="label">ZIEL</text>
+    <text x="373" y="126" class="small">Baum / Stein</text>
+    <text x="606" y="96" class="label">INTERAKTION</text>
+    <text x="606" y="126" class="small">interact()</text>
+    <text x="829" y="96" class="label">BESTAND</text>
+    <text x="829" y="126" class="small">Holz +1 / Stein +1</text>
+  </g>
+  <g fill="none" stroke="#e6bf54" stroke-width="3" stroke-dasharray="8 9">
+    <path d="M242 126H268"/><path d="M475 126H501"/><path d="M708 126H734"/>
+  </g>
+  <circle cx="70" cy="210" r="7" fill="#e6bf54">
+    <animate attributeName="cx" values="70;255;488;721;890;70" dur="5s" repeatCount="indefinite"/>
+    <animate attributeName="fill" values="#e6bf54;#83d27e;#e6bf54;#83d27e;#e6bf54;#e6bf54" dur="5s" repeatCount="indefinite"/>
+  </circle>
+</svg>

@@ -21,6 +21,11 @@
 </div>
 
 <div align="center">
+  <img src="assets/readme/resource-cycle.svg" alt="Animierter Ressourcenzyklus" width="720" />
+  <img src="assets/readme/place-transition.svg" alt="Animierter Wechsel zwischen Außen- und Innenbereich" width="720" />
+</div>
+
+<div align="center">
   <img src="assets/img/assets/tile_axe.png" width="48" alt="Axt" />
   <img src="assets/img/assets/tile_hoe.png" width="48" alt="Hacke" />
   <img src="assets/img/assets/tile_sense.png" width="48" alt="Sense" />
@@ -48,33 +53,35 @@ Tiny Farm Adventure ist ein Vanilla-JavaScript-Projekt ohne Framework und ohne B
 
 Der aktuelle Prototyp konzentriert sich auf den Kern einer kleinen Sammel- und Erkundungsschleife:
 
-1. Der Spieler bewegt sich durch eine 12x12-Außenwelt.
+1. Der Spieler bewegt sich durch eine 12x12-Außenwelt und ein zweites 20x20-Außenlevel.
 2. Bäume und Steine blockieren den Weg.
 3. Mit dem passenden Werkzeug können Ressourcen gesammelt werden.
 4. Die Ressourcen werden im UI gezählt.
-5. Ein Schild kann Ressourcen anfordern und einen weiteren Level laden.
-6. Ein Haus ist als Übergang in einen Innenbereich vorgesehen.
+5. Ein Schild zeigt Name und Kosten an, fordert Ressourcen an und kann ein Haus bauen.
+6. Das gebaute Haus führt in den Innenbereich; eine Rücktür führt wieder nach draußen.
+7. Bereits veränderte Orte bleiben beim Wechsel erhalten: zerstörte Objekte erscheinen nicht erneut.
 
 Die Spielgrafik nutzt Pixel-Art-Tiles aus den mitgelieferten Kenney-Paketen. Dadurch bleibt der Look konsistent, klar lesbar und leicht erweiterbar.
 
 ## Aktueller Funktionsumfang
 
-| Bereich           | Status | Beschreibung                                                                                                  |
-| ----------------- | :----: | ------------------------------------------------------------------------------------------------------------- |
-| Canvas-Rendering  |   ✅   | Die Welt wird als Raster auf einem HTML-Canvas gezeichnet.                                                    |
-| Außenbereich      |   ✅   | Eine 12x12-Graswelt mit Bäumen, Steinen, Haus und Schild ist definiert.                                       |
-| Spielerbewegung   |   ✅   | Bewegung über die Pfeiltasten mit Grenzenprüfung.                                                             |
-| Kollisionsprüfung |   ✅   | Solide Objekte blockieren die Bewegung.                                                                       |
-| Werkzeugwahl      |   ✅   | Axt, Hacke und Sense werden über Tasten bzw. UI ausgewählt.                                                   |
-| Baum-Interaktion  |   ✅   | Bäume können mit der Axt gefällt werden und geben Holz.                                                       |
-| Stein-Interaktion |   ✅   | Steine können mit der Hacke bearbeitet werden und geben Stein.                                                |
-| Ressourcenanzeige |   ✅   | Holz und Stein werden im UI eingeblendet, sobald sie vorhanden sind.                                          |
-| Asset-Cache       |   ✅   | Bilder werden über einen zentralen `AssetManager` geladen und wiederverwendet.                                |
-| Innenbereich      |   🧪   | Daten und Hintergrund sind vorhanden; der Wechsel benötigt noch einen vollständig stabilen Interaktionsfluss. |
-| Mehrere Level     |   🧪   | Die Datenstruktur unterstützt weitere Level, aktuell ist primär Level 0 vorhanden.                            |
-| Audio             |   ⏳   | Noch nicht implementiert.                                                                                     |
-| Gegner            |   ⏳   | Noch nicht implementiert.                                                                                     |
-| Speichern/Laden   |   ⏳   | Noch nicht implementiert.                                                                                     |
+| Bereich           | Status | Beschreibung                                                                                  |
+| ----------------- | :----: | --------------------------------------------------------------------------------------------- |
+| Canvas-Rendering  |   ✅   | Die Welt wird als Raster auf einem HTML-Canvas gezeichnet.                                    |
+| Außenbereiche     |   ✅   | Zwei Außenlevel mit Bäumen, Steinen, Schild und Hausdaten sind definiert.                     |
+| Spielerbewegung   |   ✅   | Bewegung über die Pfeiltasten mit Grenzenprüfung.                                             |
+| Kollisionsprüfung |   ✅   | Solide Objekte blockieren die Bewegung.                                                       |
+| Werkzeugwahl      |   ✅   | Axt, Hacke und Sense werden über Tasten bzw. UI ausgewählt.                                   |
+| Baum-Interaktion  |   ✅   | Bäume können mit der Axt gefällt werden und geben Holz.                                       |
+| Stein-Interaktion |   ✅   | Steine können mit der Hacke bearbeitet werden und geben Stein.                                |
+| Ressourcenanzeige |   ✅   | Holz und Stein werden im UI eingeblendet, sobald sie vorhanden sind.                          |
+| Asset-Cache       |   ✅   | Bilder werden über einen zentralen `AssetManager` geladen und wiederverwendet.                |
+| Innenbereich      |   ✅   | Indoor-Bereich mit Truhe und Rücktür ist vorhanden.                                           |
+| Mehrere Level     |   ✅   | Die Datenstruktur enthält zwei Level; der aktuelle Spielablauf baut im ersten Level ein Haus. |
+| Ortszustand       |   ✅   | Geladene Orte werden nicht erneut aufgebaut; zerstörte Objekte bleiben entfernt.              |
+| Audio             |   ⏳   | Noch nicht implementiert.                                                                     |
+| Gegner            |   ⏳   | Noch nicht implementiert.                                                                     |
+| Speichern/Laden   |   ⏳   | Noch nicht implementiert.                                                                     |
 
 ## Spielprinzip
 
@@ -88,7 +95,7 @@ Jedes Sammelobjekt definiert sein benötigtes Werkzeug:
 
 - `Tree` benötigt `axe` und liefert `wood`.
 - `Rock` benötigt `hoe` und liefert `stone`.
-- `Sign` prüft die geforderten Ressourcen.
+- `Sign` prüft die geforderten Ressourcen und baut ein konfiguriertes Objekt.
 - `House` dient als Ortsübergang.
 
 Die Werkzeuge werden in den Leveldaten als Assets des Spielers hinterlegt:
@@ -101,15 +108,47 @@ assets: [
 ];
 ```
 
-### Schild und Zielzustand
+### Schild, Kosten und Hausbau
 
-Das Schild in der Außenwelt fordert aktuell Holz und Stein an. Sind beide Mengen vorhanden, werden die Ressourcen abgezogen und der `LevelManager` soll den nächsten Level laden.
+Das Schild in der Außenwelt zeigt direkt auf seiner Grafik den Namen des Bauprojekts und die benötigten Ressourcen. Sind beide Mengen vorhanden, werden die Ressourcen abgezogen, ein neues Objekt über die Factory erzeugt und das Schild entfernt. Im aktuellen Level wird auf diese Weise ein Haus gebaut.
 
 <div align="center">
   <img src="assets/img/kenney_ui-pack-pixel-adventure/Tiles/Large%20tiles/Thick%20outline/tile_0056.png" width="64" alt="Schildteil links" />
   <img src="assets/img/kenney_ui-pack-pixel-adventure/Tiles/Large%20tiles/Thick%20outline/tile_0057.png" width="64" alt="Schildteil Mitte" />
   <img src="assets/img/kenney_ui-pack-pixel-adventure/Tiles/Large%20tiles/Thick%20outline/tile_0058.png" width="64" alt="Schildteil rechts" />
 </div>
+
+```js
+{
+  name: "Haus bauen",
+  type: "sign",
+  requested: { wood: 9, stone: 9 },
+  build: {
+    type: "house",
+    x: 8,
+    y: 4,
+    cols: 3,
+    rows: 3,
+    solid: true,
+    tiles: [
+      ["...", "...", "..."],
+      ["...", "...", "..."],
+      ["...", "...", "..."],
+    ],
+  },
+}
+```
+
+### Ortswechsel und Rückweg
+
+Das Haus reagiert an seiner Tür auf den Bewegungsversuch des Spielers. Der `LevelManager` lädt den Indoor-Ort und setzt den Spieler auf die Startposition. Die Indoor-Tür ist ein eigenes `Door`-Objekt. Sie lädt beim Betreten wieder `outdoor` und setzt den Spieler unterhalb des Hauses ab.
+
+```text
+Haus-Tür:  outdoor → indoor, Spielerposition (2, 2)
+Rücktür:  indoor  → outdoor, Spielerposition (9, 7)
+```
+
+`loadedPlaces` verhindert, dass ein bereits besuchter Ort erneut aus den Leveldaten erzeugt wird. Dadurch bleiben gefällte Bäume, abgebaute Steine und dynamisch gebaute Häuser erhalten.
 
 ## Steuerung
 
@@ -212,6 +251,16 @@ sequenceDiagram
     R->>B: Canvas-Frame zeichnen
 ```
 
+### Animierte README-Szenen
+
+Die README enthält drei kleine SVG-Animationen, die direkt aus dem Projekt verlinkt werden:
+
+- `game-loop.svg` zeigt `requestAnimationFrame`, Update und Rendern.
+- `resource-cycle.svg` zeigt Werkzeug, Zielobjekt, Interaktion und Ressourcenbestand.
+- `place-transition.svg` zeigt den Weg `outdoor → indoor → outdoor` und den persistenten Ortszustand.
+
+Die Animationen sind bewusst leichtgewichtig: Sie verwenden SVG-`animate`-Elemente und benötigen keine zusätzliche Bibliothek.
+
 ## Projektstruktur
 
 ```text
@@ -233,6 +282,7 @@ sequenceDiagram
 │   ├── entities/
 │   │   ├── Actor.js            # Spieler und Aktionen
 │   │   ├── Chest.js            # Truhe und Inventar
+│   │   ├── Door.js             # Rückweg vom Innen- zum Außenbereich
 │   │   ├── GameObject.js       # gemeinsame Objektbasis
 │   │   ├── House.js            # Haus und Ortswechsel
 │   │   ├── MultiImgObject.js   # Objekte aus mehreren Tiles
@@ -249,6 +299,10 @@ sequenceDiagram
 │   │   └── objectFactory.js
 │   └── ui/
 │       └── gameUI.js            # Werkzeuge und Ressourcenanzeige
+├── assets/readme/
+│   ├── game-loop.svg            # animierter Game-Loop
+│   ├── resource-cycle.svg       # animierter Ressourcenzyklus
+│   └── place-transition.svg     # animierter Ortswechsel
 └── README.md
 ```
 
@@ -276,7 +330,7 @@ graph TD
     GAME --> UI[GameUI]
     LEVEL --> DATA[levels.js]
     LEVEL --> FACTORY[objectFactory.js]
-    FACTORY --> ENTITIES[Tree / Rock / House / Sign / Chest]
+    FACTORY --> ENTITIES[Tree / Rock / House / Sign / Chest / Door]
     RENDER --> BACKGROUND[BackgroundRenderer]
     RENDER --> ASSETS[AssetManager]
     ENTITIES --> WORLD
@@ -384,9 +438,9 @@ Die folgende Liste beschreibt den aktuellen Entwicklungsstand und ist absichtlic
 
 - Die Interaktionslogik läuft derzeit direkt über `Actor` und die Entity-Klassen; eine zentrale Interaktionsabstraktion sollte als nächster Schritt ergänzt oder konsequent verwendet werden.
 - Die Interaktionssperre hängt vom korrekten Zurücksetzen der Tastaturereignisse ab. Fokusverlust und gehaltene Tasten sollten noch mit echten Browser-Tests geprüft werden.
-- Die Objektregistrierung muss konsequent an einer Stelle erfolgen. `GameObject` kann bei gesetztem `place` automatisch registrieren, während die Factory ebenfalls registriert.
-- Das Schild benötigt ein vorhandenes nächstes Level. Ist nur Level 0 definiert, kann nach dem Bezahlen kein echter Level 1 angezeigt werden.
-- Der Hausübergang braucht eine einheitliche Zuständigkeit: `World` wechselt den aktiven Ort, `LevelManager` lädt die Ortsdaten.
+- Das Schild baut das Haus dynamisch; eine sichtbare Erfolgsmeldung nach dem Bau fehlt noch.
+- Die Außenpositionen der Türen sind derzeit feste Koordinaten in `House.js` und `Door.js` und könnten in die Leveldaten verschoben werden.
+- Das Canvas ist derzeit fest auf 480x480 Pixel gesetzt. Eine responsive Skalierung und eine pixelgenaue Darstellung auf mobilen Geräten wären sinnvoll.
 - Es gibt noch keine Ladeanzeige für Bilder. Während Assets geladen werden, können einzelne Tiles kurzfristig fehlen.
 - Das Canvas ist derzeit fest auf 480x480 Pixel gesetzt. Eine responsive Skalierung und eine pixelgenaue Darstellung auf mobilen Geräten wären sinnvoll.
 - Es gibt noch keine automatisierten Tests für Bewegung, Kollisionsprüfung, Ressourcensammlung oder Ortswechsel.
@@ -405,16 +459,16 @@ export function interact(actor, object, levelManager) {
 
 Damit sind `Tree`, `Rock`, `Sign`, `House` und `Chest` über denselben Pfad erreichbar.
 
-### 2. Orte vollständig laden
+### 2. Türpositionen in Leveldaten verschieben
 
-Beim Wechsel zwischen `outdoor` und `indoor` sollten Hintergrund, Objektliste, Spielerposition und verfügbare Werkzeuge gemeinsam aktualisiert werden. So bleibt `world.place` immer synchron mit `levelManager.currentLevel`.
+Die Eingangs- und Ausgangspositionen sollten pro Level in `levels.js` definiert werden. Dadurch können mehrere Häuser und unterschiedliche Innenräume dieselbe Türlogik verwenden.
 
-### 3. Level 1 oder eine Erfolgsszene ergänzen
+### 3. Erfolgsszene ergänzen
 
-Das Schild ist aktuell als Zielobjekt angelegt. Der nächste Schritt ist entweder ein zweites Level oder eine sichtbare Abschlussanzeige:
+Das Schild baut aktuell ein Haus. Der nächste Schritt ist eine sichtbare Rückmeldung nach dem Bezahlen und Bauen:
 
 ```text
-Ressourcen gesammelt → Schild erfüllt → Erfolg anzeigen → nächster Bereich laden
+Ressourcen gesammelt → Schild erfüllt → Haus bauen → Erfolg anzeigen
 ```
 
 ### 4. Browser-Tests hinzufügen
