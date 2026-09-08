@@ -442,7 +442,6 @@ Die folgende Liste beschreibt den aktuellen Entwicklungsstand und ist absichtlic
 - Die Außenpositionen der Türen sind derzeit feste Koordinaten in `House.js` und `Door.js` und könnten in die Leveldaten verschoben werden.
 - Das Canvas ist derzeit fest auf 480x480 Pixel gesetzt. Eine responsive Skalierung und eine pixelgenaue Darstellung auf mobilen Geräten wären sinnvoll.
 - Es gibt noch keine Ladeanzeige für Bilder. Während Assets geladen werden, können einzelne Tiles kurzfristig fehlen.
-- Das Canvas ist derzeit fest auf 480x480 Pixel gesetzt. Eine responsive Skalierung und eine pixelgenaue Darstellung auf mobilen Geräten wären sinnvoll.
 - Es gibt noch keine automatisierten Tests für Bewegung, Kollisionsprüfung, Ressourcensammlung oder Ortswechsel.
 
 ## Nächste sinnvolle Schritte
