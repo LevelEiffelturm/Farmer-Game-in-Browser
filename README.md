@@ -25,12 +25,6 @@
   <img src="assets/readme/place-transition.svg" alt="Animierter Wechsel zwischen Außen- und Innenbereich" width="720" />
 </div>
 
-<div align="center">
-  <img src="assets/img/assets/tile_axe.png" width="48" alt="Axt" />
-  <img src="assets/img/assets/tile_hoe.png" width="48" alt="Hacke" />
-  <img src="assets/img/assets/tile_sense.png" width="48" alt="Sense" />
-</div>
-
 ## Inhaltsverzeichnis
 
 - [Über das Projekt](#über-das-projekt)
