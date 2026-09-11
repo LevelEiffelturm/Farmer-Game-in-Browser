@@ -17,18 +17,49 @@ export class Chest extends GameObject {
     });
 
     this.inventory = {
-      wood: 0,
-      stone: 0,
+      wood: 18,
+      stone: 18,
     };
   }
 
   interact(actor) {
-    this.inventory.wood += actor.wood;
-    this.inventory.stone += actor.stone;
+    const hasResources = actor.wood > 0 || actor.stone > 0;
 
-    actor.wood = 0;
-    actor.stone = 0;
+    if (hasResources) {
+      this.deposit(actor);
+    } else {
+      this.withdraw(actor);
+    }
 
     console.log("Truhe:", this.inventory);
+  }
+
+  deposit(actor) {
+    for (let i = 0; i <= actor.wood && this.inventory.wood < 20; i++) {
+      actor.wood--;
+      this.inventory.wood++;
+    }
+    for (let i = 0; i <= actor.stone && this.inventory.stone < 20; i++) {
+      actor.stone--;
+      this.inventory.stone++;
+    }
+    if (this.inventory.wood >= 20 || this.inventory.stone >= 20) {
+      console.log(
+        "Die Truhe ist voll mit " +
+          this.inventory.wood +
+          " Holz und " +
+          this.inventory.stone +
+          " Stein.",
+      );
+      return;
+    }
+  }
+
+  withdraw(actor) {
+    actor.wood += this.inventory.wood;
+    actor.stone += this.inventory.stone;
+
+    this.inventory.wood = 0;
+    this.inventory.stone = 0;
   }
 }

@@ -15,6 +15,13 @@ export let allLevel = [
       ],
       gameObjects: [
         {
+          src: "../assets/img/kenney_tiny-farm/Tiles/tile_0075.png",
+          x: 11,
+          y: 0,
+          solid: true,
+          type: "chest",
+        },
+        {
           name: "Haus bauen",
           type: "sign",
           x: 8,
@@ -442,32 +449,6 @@ export let allLevel = [
           y: 11,
           solid: true,
           type: "rock",
-        },
-        {
-          type: "house",
-          x: 8,
-          y: 4,
-          cols: 3,
-          rows: 3,
-          solid: true,
-
-          tiles: [
-            [
-              "../assets/img/house/tile_0048.png",
-              "../assets/img/house/tile_0049.png",
-              "../assets/img/house/tile_0050.png",
-            ],
-            [
-              "../assets/img/house/tile_0060.png",
-              "../assets/img/house/tile_0061.png",
-              "../assets/img/house/tile_0062.png",
-            ],
-            [
-              "../assets/img/house/tile_0072.png",
-              "../assets/img/house/tile_0074.png",
-              "../assets/img/house/tile_0075.png",
-            ],
-          ],
         },
       ],
       background: [
