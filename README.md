@@ -3,11 +3,11 @@
 > Ein kleines Top-down-Pixelspiel mit Ressourcen, Werkzeugen, zerstörbaren Objekten und einem Übergang zwischen Außen- und Innenbereich.
 
 <div align="center">
-  <img src="assets/img/background/normal_grass/tile_0000.png" width="64" alt="Gras-Tile" />
-  <img src="assets/img/kenney_tiny-farm/Tiles/tile_0109.png" width="96" alt="Spieler-Sprite" />
-  <img src="assets/img/house/tile_0061.png" width="96" alt="Haus-Tile" />
-  <img src="assets/img/kenney_tiny-farm/Tiles/tile_0089.png" width="64" alt="Stein-Tile" />
-  <img src="assets/img/kenney_tiny-farm/Tiles/tile_0027.png" width="64" alt="Baum-Tile" />
+  <img src="public/assets//img/background/normal_grass/tile_0000.png" width="64" alt="Gras-Tile" />
+  <img src="public/assets//img/kenney_tiny-farm/Tiles/tile_0109.png" width="96" alt="Spieler-Sprite" />
+  <img src="public/assets//img/house/tile_0061.png" width="96" alt="Haus-Tile" />
+  <img src="public/assets//img/kenney_tiny-farm/Tiles/tile_0089.png" width="64" alt="Stein-Tile" />
+  <img src="public/assets//img/kenney_tiny-farm/Tiles/tile_0027.png" width="64" alt="Baum-Tile" />
 </div>
 
 <div align="center">
@@ -17,12 +17,12 @@
 <br />
 
 <div align="center">
-  <img src="assets/readme/game-loop.svg" alt="Animierte Darstellung des Spiel-Loops" width="720" />
+  <img src="public/assets//readme/game-loop.svg" alt="Animierte Darstellung des Spiel-Loops" width="720" />
 </div>
 
 <div align="center">
-  <img src="assets/readme/resource-cycle.svg" alt="Animierter Ressourcenzyklus" width="720" />
-  <img src="assets/readme/place-transition.svg" alt="Animierter Wechsel zwischen Außen- und Innenbereich" width="720" />
+  <img src="public/assets//readme/resource-cycle.svg" alt="Animierter Ressourcenzyklus" width="720" />
+  <img src="public/assets//readme/place-transition.svg" alt="Animierter Wechsel zwischen Außen- und Innenbereich" width="720" />
 </div>
 
 ## Inhaltsverzeichnis
@@ -107,9 +107,9 @@ assets: [
 Das Schild in der Außenwelt zeigt direkt auf seiner Grafik den Namen des Bauprojekts und die benötigten Ressourcen. Sind beide Mengen vorhanden, werden die Ressourcen abgezogen, ein neues Objekt über die Factory erzeugt und das Schild entfernt. Im aktuellen Level wird auf diese Weise ein Haus gebaut.
 
 <div align="center">
-  <img src="assets/img/kenney_ui-pack-pixel-adventure/Tiles/Large%20tiles/Thick%20outline/tile_0056.png" width="64" alt="Schildteil links" />
-  <img src="assets/img/kenney_ui-pack-pixel-adventure/Tiles/Large%20tiles/Thick%20outline/tile_0057.png" width="64" alt="Schildteil Mitte" />
-  <img src="assets/img/kenney_ui-pack-pixel-adventure/Tiles/Large%20tiles/Thick%20outline/tile_0058.png" width="64" alt="Schildteil rechts" />
+  <img src="public/assets//img/kenney_ui-pack-pixel-adventure/Tiles/Large%20tiles/Thick%20outline/tile_0056.png" width="64" alt="Schildteil links" />
+  <img src="public/assets//img/kenney_ui-pack-pixel-adventure/Tiles/Large%20tiles/Thick%20outline/tile_0057.png" width="64" alt="Schildteil Mitte" />
+  <img src="public/assets//img/kenney_ui-pack-pixel-adventure/Tiles/Large%20tiles/Thick%20outline/tile_0058.png" width="64" alt="Schildteil rechts" />
 </div>
 
 ```js
@@ -166,20 +166,20 @@ Die Bewegung ist absichtlich rasterbasiert und wird über eine Aktionssperre ged
 
 <table>
   <tr>
-    <td align="center"><img src="assets/img/background/normal_grass/tile_0000.png" width="96" alt="Normales Gras" /><br /><sub>Gras</sub></td>
-    <td align="center"><img src="assets/img/kenney_tiny-farm/Tiles/tile_0027.png" width="96" alt="Baum" /><br /><sub>Baum</sub></td>
-    <td align="center"><img src="assets/img/kenney_tiny-farm/Tiles/tile_0089.png" width="96" alt="Stein" /><br /><sub>Stein</sub></td>
-    <td align="center"><img src="assets/img/house/tile_0050.png" width="96" alt="Haus rechts oben" /><br /><sub>Haus</sub></td>
-    <td align="center"><img src="assets/img/kenney_tiny-farm/Tiles/tile_0109.png" width="96" alt="Spieler" /><br /><sub>Spieler</sub></td>
+    <td align="center"><img src="public/assets//img/background/normal_grass/tile_0000.png" width="96" alt="Normales Gras" /><br /><sub>Gras</sub></td>
+    <td align="center"><img src="public/assets//img/kenney_tiny-farm/Tiles/tile_0027.png" width="96" alt="Baum" /><br /><sub>Baum</sub></td>
+    <td align="center"><img src="public/assets//img/kenney_tiny-farm/Tiles/tile_0089.png" width="96" alt="Stein" /><br /><sub>Stein</sub></td>
+    <td align="center"><img src="public/assets//img/house/tile_0050.png" width="96" alt="Haus rechts oben" /><br /><sub>Haus</sub></td>
+    <td align="center"><img src="public/assets//img/kenney_tiny-farm/Tiles/tile_0109.png" width="96" alt="Spieler" /><br /><sub>Spieler</sub></td>
   </tr>
 </table>
 
 ### Werkzeugleiste
 
 <div align="center">
-  <img src="assets/img/assets/tile_axe.png" width="72" alt="Axt" />
-  <img src="assets/img/assets/tile_hoe.png" width="72" alt="Hacke" />
-  <img src="assets/img/assets/tile_sense.png" width="72" alt="Sense" />
+  <img src="public/assets//img/assets/tile_axe.png" width="72" alt="Axt" />
+  <img src="public/assets//img/assets/tile_hoe.png" width="72" alt="Hacke" />
+  <img src="public/assets//img/assets/tile_sense.png" width="72" alt="Sense" />
 </div>
 
 Die UI zeigt die Werkzeuge als klickbare Bilder. Das ausgewählte Werkzeug erhält eine grüne Hervorhebung. Ressourcencontainer werden erst eingeblendet, wenn der jeweilige Bestand größer als null ist.
@@ -187,8 +187,8 @@ Die UI zeigt die Werkzeuge als klickbare Bilder. Das ausgewählte Werkzeug erhä
 ### Innenraum-Tiles
 
 <div align="center">
-  <img src="assets/img/kenney_ui-pack-pixel-adventure/Tiles/Large%20tiles/Thick%20outline/tile_0001.png" width="128" alt="Innenraum-Bodentile" />
-  <img src="assets/img/kenney_tiny-farm/Tiles/tile_0075.png" width="96" alt="Truhe" />
+  <img src="public/assets//img/kenney_ui-pack-pixel-adventure/Tiles/Large%20tiles/Thick%20outline/tile_0001.png" width="128" alt="Innenraum-Bodentile" />
+  <img src="public/assets//img/kenney_tiny-farm/Tiles/tile_0075.png" width="96" alt="Truhe" />
 </div>
 
 ## Animationen und Spielabläufe
@@ -211,11 +211,11 @@ Das Projekt verwendet aktuell keine externen Animationsbibliotheken. Die Bewegun
 
 <table>
   <tr>
-    <td align="center"><img src="assets/img/kenney_tiny-farm/Tiles/tile_0089.png" width="80" alt="Stein Stufe 0" /><br /><sub>Stufe 0</sub></td>
+    <td align="center"><img src="public/assets//img/kenney_tiny-farm/Tiles/tile_0089.png" width="80" alt="Stein Stufe 0" /><br /><sub>Stufe 0</sub></td>
     <td align="center">→</td>
-    <td align="center"><img src="assets/img/kenney_tiny-farm/Tiles/tile_0077.png" width="80" alt="Stein Stufe 1" /><br /><sub>Stufe 1</sub></td>
+    <td align="center"><img src="public/assets//img/kenney_tiny-farm/Tiles/tile_0077.png" width="80" alt="Stein Stufe 1" /><br /><sub>Stufe 1</sub></td>
     <td align="center">→</td>
-    <td align="center"><img src="assets/img/background/normal_grass/tile_0000.png" width="80" alt="Freies Feld nach Abbau" /><br /><sub>entfernt</sub></td>
+    <td align="center"><img src="public/assets//img/background/normal_grass/tile_0000.png" width="80" alt="Freies Feld nach Abbau" /><br /><sub>entfernt</sub></td>
   </tr>
 </table>
 
@@ -491,12 +491,12 @@ Bitte die jeweiligen Lizenzdateien beachten, wenn das Projekt oder einzelne Asse
 ---
 
 <div align="center">
-  <img src="assets/img/background/normal_grass/tile_0001.png" width="48" alt="Gras" />
-  <img src="assets/img/assets/tile_axe.png" width="48" alt="Axt" />
-  <img src="assets/img/background/normal_grass/tile_0002.png" width="48" alt="Gras" />
-  <img src="assets/img/assets/tile_hoe.png" width="48" alt="Hacke" />
-  <img src="assets/img/background/normal_grass/tile_0000.png" width="48" alt="Gras" />
-  <img src="assets/img/assets/tile_sense.png" width="48" alt="Sense" />
+  <img src="public/assets//img/background/normal_grass/tile_0001.png" width="48" alt="Gras" />
+  <img src="public/assets//img/assets/tile_axe.png" width="48" alt="Axt" />
+  <img src="public/assets//img/background/normal_grass/tile_0002.png" width="48" alt="Gras" />
+  <img src="public/assets//img/assets/tile_hoe.png" width="48" alt="Hacke" />
+  <img src="public/assets//img/background/normal_grass/tile_0000.png" width="48" alt="Gras" />
+  <img src="public/assets//img/assets/tile_sense.png" width="48" alt="Sense" />
   <br />
   <sub>Ein kleiner Pixel-Schritt nach dem anderen.</sub>
 </div>
