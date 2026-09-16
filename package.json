@@ -1,0 +1,24 @@
+{
+  "name": "farmer-game-in-browser",
+  "version": "1.0.0",
+  "description": "> Ein kleines Top-down-Pixelspiel mit Ressourcen, Werkzeugen, zerstörbaren Objekten und einem Übergang zwischen Außen- und Innenbereich.",
+  "homepage": "https://github.com/LevelEiffelturm/Farmer-Game-in-Browser#readme",
+  "bugs": {
+    "url": "https://github.com/LevelEiffelturm/Farmer-Game-in-Browser/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LevelEiffelturm/Farmer-Game-in-Browser.git"
+  },
+  "license": "MIT",
+  "author": "level",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
