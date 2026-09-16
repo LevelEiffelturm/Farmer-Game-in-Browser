@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 240" role="img" aria-labelledby="title desc">
+  <title id="title">Animierter Ortswechsel</title>
+  <desc id="desc">Der Spieler wechselt durch Haus und Rücktür zwischen Außen- und Innenbereich.</desc>
+  <defs>
+    <linearGradient id="place" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#1c4250"/><stop offset="1" stop-color="#342b42"/>
+    </linearGradient>
+    <style>
+      .label { fill: #f4e8b0; font: 700 18px monospace; }
+      .small { fill: #9bbcaf; font: 13px monospace; }
+      .panel { fill: #172f39; stroke: #5e8d85; stroke-width: 2; }
+    </style>
+  </defs>
+  <rect width="960" height="240" rx="18" fill="url(#place)"/>
+  <g class="panel">
+    <rect x="45" y="55" width="250" height="130" rx="12"/>
+    <rect x="355" y="55" width="250" height="130" rx="12"/>
+    <rect x="665" y="55" width="250" height="130" rx="12"/>
+  </g>
+  <g text-anchor="middle">
+    <text x="170" y="95" class="label">OUTDOOR</text>
+    <text x="170" y="126" class="small">Haus gebaut</text>
+    <text x="480" y="95" class="label">INDOOR</text>
+    <text x="480" y="126" class="small">Tür erreicht</text>
+    <text x="790" y="95" class="label">OUTDOOR</text>
+    <text x="790" y="126" class="small">Objekte bleiben</text>
+  </g>
+  <path d="M306 120H344M616 120H654" fill="none" stroke="#e6bf54" stroke-width="3" stroke-dasharray="8 9"/>
+  <g>
+    <rect x="0" y="158" width="16" height="16" fill="#f0c758">
+      <animate attributeName="x" values="306;344;616;654;306" dur="4s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+  <text x="480" y="215" text-anchor="middle" class="small">loadPlace() · loadedPlaces · zurück zur gespeicherten Welt</text>
+</svg>
