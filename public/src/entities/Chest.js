@@ -17,8 +17,8 @@ export class Chest extends GameObject {
     });
 
     this.inventory = {
-      wood: 18,
-      stone: 18,
+      wood: 0,
+      stone: 0,
     };
   }
 

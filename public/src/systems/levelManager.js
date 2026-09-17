@@ -14,16 +14,49 @@ export class LevelManager {
     this.loadedPlaces = new Set();
   }
 
-  load(index) {
+  async load(index, { save = true } = {}) {
     if (!allLevel[index]) {
       console.error(`Level ${index} does not exist.`);
-      return;
+      return false;
     }
 
     this.level = index;
     this.world.clear();
     this.loadedPlaces.clear();
     this.loadPlace("outdoor");
+
+    if (save) {
+      await this.saveProgress();
+    }
+
+    return true;
+  }
+
+  async loadSavedLevel() {
+    try {
+      const response = await fetch("/api/progress");
+      if (!response.ok) {
+        return this.load(0, { save: false });
+      }
+
+      const { level } = await response.json();
+      return this.load(Number.isInteger(level) ? level : 0, { save: false });
+    } catch (error) {
+      console.error("Level-Fortschritt konnte nicht geladen werden.", error);
+      return this.load(0, { save: false });
+    }
+  }
+
+  async saveProgress() {
+    try {
+      await fetch("/api/progress/level", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ level: this.level }),
+      });
+    } catch (error) {
+      console.error("Level-Fortschritt konnte nicht gespeichert werden.", error);
+    }
   }
 
   createLevelObjects() {

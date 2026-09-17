@@ -34,10 +34,10 @@ export class Game {
     this.gameOver = false;
   }
 
-  start() {
+  async start() {
     this.setupPage();
 
-    this.levelManager.load(0);
+    await this.levelManager.loadSavedLevel();
 
     this.player = this.levelManager.createPlayer();
 
@@ -47,7 +47,7 @@ export class Game {
   }
 
   setupPage() {
-    document.body.style.overflowY = "hidden";
+    document.body.style.overflowY = "auto";
     document.body.style.overflowX = "hidden";
   }
 
