@@ -1,90 +1,53 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mini-Game</title>
-    <link
-      rel="icon"
-      type="image/png"
-      href="../assets/img/kenney_tiny-farm/Tiles/tile_0075.png"
-    />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#183b2a">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Harvest Hollow | Dein Farm-Abenteuer</title>
+</head>
+<body>
+    <main class="landing-shell">
+        <nav class="topbar" aria-label="Hauptnavigation">
+            <a class="brand" href="/" aria-label="Harvest Hollow Startseite">
+                <span class="brand-mark">HH</span>
+                <span>Harvest Hollow</span>
+            </a>
+            <div class="nav-actions">
+                <a class="text-link" href="/login">Einloggen</a>
+                <a class="button button-small" href="/register">Spielen</a>
+            </div>
+        </nav>
 
-    <style>
-      main {
-        display: flex;
-        flex-direction: row;
-        gap: 2%;
-      }
-      #game-assets {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-      }
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero-copy">
+                <p class="eyebrow"><span class="status-dot"></span> Dein kleines Stueck Erde</p>
+                <h1 id="hero-title">Baue dir ein<br><em>neues Zuhause.</em></h1>
+                <p class="hero-text">Pflanze, erkunde und gestalte deine eigene Farm. Ein entspanntes Pixel-Abenteuer wartet auf dich.</p>
+                <div class="hero-actions">
+                    <a class="button" href="/register">Jetzt starten <span aria-hidden="true">-&gt;</span></a>
+                    <a class="quiet-link" href="/login">Ich habe bereits ein Konto</a>
+                </div>
+            </div>
+            <div class="hero-art" aria-label="Illustration einer kleinen Farm" role="img">
+                <div class="sun"></div>
+                <div class="cloud cloud-one"></div>
+                <div class="cloud cloud-two"></div>
+                <div class="hill hill-back"></div>
+                <div class="hill hill-front"></div>
+                <div class="farm-house"><span class="roof"></span><span class="window"></span><span class="door"></span></div>
+                <div class="crop-row crop-one"><i></i><i></i><i></i><i></i></div>
+                <div class="crop-row crop-two"><i></i><i></i><i></i><i></i></div>
+                <div class="signpost">FARM<br><small>01</small></div>
+            </div>
+        </section>
 
-      #game-items {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-      }
-
-      #game-items > div {
-        background-color: #282828;
-        border-radius: 10px;
-        padding: 7px;
-      }
-
-      #wood {
-        color: antiquewhite;
-      }
-
-      #stone {
-        color: antiquewhite;
-      }
-
-      #game-assets img {
-        width: 30px;
-      }
-
-      #game-assets > img {
-        width: 30px;
-        border: 3px solid #0f0f0f;
-        padding: 7px;
-      }
-
-      #game-assets > img:hover {
-        border-style: dashed;
-      }
-    </style>
-  </head>
-  <body>
-    <main>
-      <canvas id="canvas" width="480" height="480"></canvas>
-
-      <div id="game-assets">
-        <!-- <img src="../assets/img/assets/tile_0001.png" alt="" id="axe" />
-        <img src="../assets/img/assets/tile_0002.png" alt="" id="hoe" />
-        <img src="../assets/img/assets/tile_0003.png" alt="" id="sense" /> -->
-      </div>
-
-      <div id="game-items">
-        <div id="wood-container">
-          <img
-            src="../assets/img/kenney_tiny-farm/Tiles/tile_0027.png"
-            alt=""
-          />
-          <samp id="wood"></samp>
-        </div>
-        <div id="stone-container">
-          <img
-            src="../assets/img/kenney_tiny-farm/Tiles/tile_0089.png"
-            alt=""
-          />
-          <samp id="stone"></samp>
-        </div>
-      </div>
+        <section class="feature-strip" aria-label="Spielinhalte">
+            <article><span class="feature-number">01</span><div><h2>Deine Farm</h2><p>Mach aus wildem Land deinen Lieblingsort.</p></div></article>
+            <article><span class="feature-number">02</span><div><h2>Deine Reise</h2><p>Entdecke Wege, Haeuser und kleine Geheimnisse.</p></div></article>
+            <article><span class="feature-number">03</span><div><h2>Dein Tempo</h2><p>Spiele entspannt. Jeder Tag bringt etwas Neues.</p></div></article>
+        </section>
     </main>
-
-    <script type="module" src="src/main.js"></script>
-  </body>
+</body>
 </html>

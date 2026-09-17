@@ -7,6 +7,8 @@ const db = new Database("farmer-game.db");
 
 const port = 3000
 
+let user;
+
 app.set("view engine", "ejs");
 app.use(express.static("./public"));
 app.use(express.urlencoded({ extended: true }));
@@ -20,22 +22,35 @@ db.exec(`
   )
 `);
 
+function isUserLoggedIn(req) {
+  if (req.session.user) {
+    return true;
+  }
+  return false;
+}
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 
-app.get("/", (request, response) => {
-  response.render("index", {
+if (!isUserLoggedIn) {
+  app.get("/", (req, res) => {
+    res.redirect("/index");
+  });
+} else {
+  app.get("/", (req, res) => {
+    res.render("game/index", {
+      user: user,
+    });
+  });
+}
+
+app.get("/login", (req, res) => {
+  res.render("login", {
     // data: data,
   });
 });
 
-app.get("/login", (request, response) => {
-  response.render("login", {
-    // data: data,
-  });
-});
-
-app.get("/register", (request, response) => {
-  response.render("register", {
+app.get("/register", (req, res) => {
+  res.render("register", {
     // data: data,
   });
 });
@@ -59,19 +74,21 @@ app.post("/register", async (req, res) => {
 app.post("/login", async (req, res) => {
   const { username, password } = req.body;
 
-  const user = db
+  const givenUser = db
     .prepare("SELECT * FROM users WHERE username = ?")
     .get(username);
 
-  if (!user) {
+  if (!givenUser) {
     return res.status(401).send("Benutzername oder Passwort falsch.");
   }
 
-  const passwordIsCorrect = await bcrypt.compare(password, user.password);
+  const passwordIsCorrect = await bcrypt.compare(password, givenUser.password);
 
   if (!passwordIsCorrect) {
     return res.status(401).send("Benutzername oder Passwort falsch.");
   }
+
+  user = givenUser;
 
   res.redirect("/");
 });

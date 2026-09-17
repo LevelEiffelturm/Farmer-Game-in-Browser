@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deine Farm | Harvest Hollow</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../assets/img/kenney_tiny-farm/Tiles/tile_0075.png"
+    />
+  </head>
+  <body class="game-page">
+    <main class="game-shell">
+      <header class="game-topbar">
+        <a class="brand" href="/" aria-label="Harvest Hollow Startseite">
+          <span class="brand-mark">HH</span>
+          <span>Harvest Hollow</span>
+        </a>
+        <div class="game-status">
+          <span class="live-dot"></span>
+          <span>Tag 01</span>
+          <span class="status-divider"></span>
+          <a href="/login">Konto</a>
+        </div>
+      </header>
+
+      <section class="game-heading">
+        <div>
+          <p class="eyebrow"><span class="status-dot"></span> Deine Farm</p>
+          <h1>Ein guter <em>neuer Tag.</em></h1>
+        </div>
+        <p class="game-tip">Sammle Ressourcen und erkunde deine Umgebung.</p>
+      </section>
+
+      <section class="game-layout" aria-label="Spielbereich">
+        <div class="game-board-wrap">
+          <div class="board-label"><span>FARM 01</span><span class="board-coordinates">N 42.08 / E 12.04</span></div>
+          <div class="canvas-frame">
+            <canvas id="canvas" width="480" height="480"></canvas>
+          </div>
+          <div class="board-footer"><span class="key-hint">Pfeiltasten</span> Bewegen <span class="key-hint">Shift</span> Interagieren</div>
+        </div>
+
+        <aside class="game-sidebar">
+          <section class="game-card inventory-card">
+            <div class="card-heading"><h2>Rucksack</h2><span class="card-count">02</span></div>
+            <div id="game-items" class="resource-list">
+              <div id="wood-container" class="resource-item">
+                <span class="resource-icon"><img src="../../assets/img/kenney_tiny-farm/Tiles/tile_0027.png" alt="Holz" /></span>
+                <span><strong>Holz</strong><small>Baumaterial</small></span>
+                <samp id="wood">0</samp>
+              </div>
+              <div id="stone-container" class="resource-item">
+                <span class="resource-icon"><img src="../../assets/img/kenney_tiny-farm/Tiles/tile_0089.png" alt="Stein" /></span>
+                <span><strong>Stein</strong><small>Baumaterial</small></span>
+                <samp id="stone">0</samp>
+              </div>
+            </div>
+          </section>
+
+          <section class="game-card tools-card">
+            <div class="card-heading"><h2>Werkzeuge</h2><span class="tool-key">1-3</span></div>
+            <div id="game-assets" class="tool-list">
+              <!-- Werkzeuge werden von der Spiellogik eingesetzt. -->
+            </div>
+            <p class="empty-tools">Waehle ein Werkzeug aus, sobald du eines findest.</p>
+          </section>
+        </aside>
+      </section>
+    </main>
+
+    <script type="module" src="../../src/main.js"></script>
+  </body>
+</html>

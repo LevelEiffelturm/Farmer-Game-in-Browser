@@ -1,15 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-    </head>
-    <body>
-        <form action="/register" method="post">
-            <input type="text" name="username" placeholder="Benutzername" required>
-            <input type="password" name="password" placeholder="Passwort" required>
-            <button type="submit">Registrieren</button>
-        </form>
-    </body>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Registrieren | Harvest Hollow</title>
+</head>
+<body>
+    <main class="auth-shell">
+        <a class="back-link" href="/">&lt;- Zurueck zur Farm</a>
+        <section class="auth-layout">
+            <div class="auth-intro">
+                <p class="eyebrow"><span class="status-dot"></span> Dein Abenteuer beginnt</p>
+                <h1>Dein eigenes<br><em>Stueck Erde.</em></h1>
+                <p>Erstelle dein Konto, schnapp dir deine Werkzeuge und bring die Farm zum Bluehen.</p>
+            </div>
+            <div class="form-panel">
+                <div class="form-heading"><span class="panel-icon">HH</span><div><p class="form-kicker">Harvest Hollow</p><h2>Konto erstellen</h2></div></div>
+                <form action="/register" method="post">
+                    <label for="username">Benutzername</label>
+                    <input type="text" id="username" name="username" placeholder="z. B. farmfreund" autocomplete="username" required>
+                    <label for="password">Passwort</label>
+                    <input type="password" id="password" name="password" placeholder="Mindestens 8 Zeichen" minlength="8" autocomplete="new-password" required>
+                    <button class="button form-button" type="submit">Konto erstellen <span aria-hidden="true">-&gt;</span></button>
+                </form>
+                <p class="form-footer">Schon dabei? <a href="/login">Jetzt einloggen</a></p>
+            </div>
+        </section>
+    </main>
+</body>
 </html>

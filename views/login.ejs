@@ -1,19 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mini-Game</title>
+    <link rel="stylesheet" href="/styles.css">
+    <title>Einloggen | Harvest Hollow</title>
 </head>
 <body>
-    <form action="/login" method="post">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
-        <br>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-        <br>
-        <button type="submit">Login</button>
-    </form>
+    <main class="auth-shell">
+        <a class="back-link" href="/">&lt;- Zurueck zur Farm</a>
+        <section class="auth-layout">
+            <div class="auth-intro">
+                <p class="eyebrow"><span class="status-dot"></span> Schoen, dich zu sehen</p>
+                <h1>Zurueck auf<br><em>deiner Farm.</em></h1>
+                <p>Logge dich ein und setze dein Abenteuer dort fort, wo du es verlassen hast.</p>
+            </div>
+            <div class="form-panel">
+                <div class="form-heading"><span class="panel-icon">HH</span><div><p class="form-kicker">Harvest Hollow</p><h2>Einloggen</h2></div></div>
+                <form action="/login" method="post">
+                    <label for="username">Benutzername</label>
+                    <input type="text" id="username" name="username" placeholder="z. B. farmfreund" autocomplete="username" required>
+                    <label for="password">Passwort</label>
+                    <input type="password" id="password" name="password" placeholder="Dein Passwort" autocomplete="current-password" required>
+                    <button class="button form-button" type="submit">Einloggen <span aria-hidden="true">-&gt;</span></button>
+                </form>
+                <p class="form-footer">Noch kein Konto? <a href="/register">Jetzt registrieren</a></p>
+            </div>
+        </section>
+    </main>
 </body>
 </html>
