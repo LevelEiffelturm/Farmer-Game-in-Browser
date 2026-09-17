@@ -6,7 +6,7 @@ const session = require("express-session");
 const app = express();
 const db = new Database("farmer-game.db");
 
-const port = 3000
+const port = process.env.PORT || 3000;
 
 app.set("view engine", "ejs");
 app.use(express.static("./public"));
@@ -41,7 +41,9 @@ db.exec(`
   )
 `);
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.listen(port, "0.0.0.0", () => {
+  console.log(`Example app listening on port ${port}!`);
+});
 
 app.get("/", (req, res) => {
   if (!req.session.user) {
